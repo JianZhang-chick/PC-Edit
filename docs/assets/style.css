@@ -89,23 +89,6 @@ img { display: block; max-width: 100%; }
   background: radial-gradient(circle, rgba(151, 123, 220, 0.40), rgba(151, 123, 220, 0));
 }
 
-.method-tag {
-  width: fit-content;
-  margin: 0 auto 21px;
-  padding: 7px 15px;
-  border: 1px solid rgba(73, 104, 216, 0.20);
-  border-radius: 999px;
-  color: var(--accent-deep);
-  background: rgba(255, 255, 255, 0.70);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  box-shadow: 0 3px 12px rgba(38, 56, 115, 0.05);
-}
-
-.method-tag span { margin: 0 5px; color: #9aa5ca; }
-
 h1 {
   max-width: 1060px;
   margin: 0 auto 27px;
@@ -136,6 +119,22 @@ h1 span {
   color: var(--muted);
   font-size: 14px;
 }
+
+.authors sup,
+.affiliation sup {
+  font-size: 0.62em;
+  line-height: 0;
+  vertical-align: super;
+}
+
+.affiliation > span { display: block; }
+
+.affiliation a {
+  color: var(--accent-deep);
+  text-decoration: none;
+}
+
+.affiliation a:hover { text-decoration: underline; }
 
 .project-links {
   display: flex;
@@ -299,7 +298,6 @@ footer {
   body { font-size: 16px; }
   .page-width, .text-width { width: min(100% - 24px, 1180px); }
   .hero { padding: 48px 0 46px; }
-  .method-tag { font-size: 10px; }
   h1 { font-size: 38px; letter-spacing: -0.035em; }
   .authors { font-size: 18px; }
   .project-link { min-width: 118px; }
