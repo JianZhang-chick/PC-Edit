@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6fb">
+  <meta name="description" content="PC-Edit: Prompt-Contrastive Region Discovery and Region-Guided Editing.">
+  <meta property="og:title" content="PC-Edit: Prompt-Contrastive Region Discovery and Region-Guided Editing">
+  <meta property="og:description" content="Training-free and mask-free image editing with automatic edit-region discovery.">
+  <meta property="og:image" content="https://jianzhang-chick.github.io/PC-Edit/assets/edit-regions.jpg">
+  <title>PC-Edit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-glow hero-glow-left"></div>
+    <div class="hero-glow hero-glow-right"></div>
+    <div class="page-width hero-inner">
+      <p class="method-tag">Training-free <span>·</span> Mask-free <span>·</span> MM-DiT</p>
+      <h1><span>PC-Edit</span>: Prompt-Contrastive Region Discovery and Region-Guided Editing</h1>
+      <p class="authors">Anonymous submission</p>
+      <p class="affiliation">Author information will be released after de-anonymization.</p>
+
+      <div class="project-links" aria-label="Project links">
+        <span class="project-link unavailable" aria-disabled="true">
+          <span class="link-icon" aria-hidden="true">▤</span>
+          <span>Paper</span>
+          <small>Coming soon</small>
+        </span>
+        <span class="project-link unavailable" aria-disabled="true">
+          <span class="link-icon code-icon" aria-hidden="true">&lt;/&gt;</span>
+          <span>Code</span>
+          <small>Coming soon</small>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section abstract-section">
+      <div class="text-width">
+        <h2>Abstract</h2>
+        <div class="abstract-copy">
+          <p>
+            Replacing an object with one that differs in category or shape requires
+            complete source removal, natural target formation unconstrained by the
+            source silhouette, and preservation of unrelated content. Existing
+            training-free editors often trade edit completeness for background
+            preservation or localize edits from signals whose spatial response has
+            already been obscured by later network transformations. PC-Edit is a
+            prompt-contrastive framework for training-free MM-DiT
+            editing. It contrasts image-token attention outputs under source and
+            target prompts at the same latent state and timestep, capturing semantic
+            differences directly where text-conditioned information is delivered to
+            image tokens. The same contrast discovers a source-erasure region during
+            inversion and tracks a target-emergence region during denoising. Their
+            union suppresses source remnants while allowing the target to form
+            naturally. PC-Edit further preserves unrelated content by immediately
+            injecting cached source K/V features outside the discovered region within
+            each sampling step. The method supports single- and multi-object addition
+            and replacement without user-provided masks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pipeline-section">
+      <div class="page-width">
+        <div class="section-heading">
+          <p>How it works</p>
+          <h2>Pipeline</h2>
+        </div>
+        <figure class="research-figure pipeline-figure">
+          <div class="image-surface">
+            <a class="figure-zoom" href="assets/pipeline.svg" target="_blank" rel="noopener" aria-label="Open the pipeline figure at full resolution">
+              <img src="assets/pipeline.svg" alt="PC-Edit inversion and denoising pipeline" decoding="async">
+            </a>
+          </div>
+          <figcaption>
+            PC-Edit estimates the source-erasure mask during inversion, tracks the
+            target-emergence mask during denoising, and injects source K/V outside
+            their union to preserve unrelated content.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section demo-section">
+      <div class="page-width">
+        <div class="section-heading">
+          <p>Qualitative examples</p>
+          <h2>Demo Results</h2>
+        </div>
+
+        <figure class="research-figure featured-demo">
+          <div class="image-surface">
+            <a class="figure-zoom" href="assets/edit-regions.svg" target="_blank" rel="noopener" aria-label="Open the edit-region results at full resolution">
+              <img src="assets/edit-regions.svg" alt="PC-Edit results with automatically discovered edit regions" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <figcaption>
+            Single- and multi-object addition and replacement with automatically
+            discovered edit regions.
+          </figcaption>
+        </figure>
+
+        <div class="comparison-grid">
+          <figure class="research-figure">
+            <div class="image-surface">
+              <a class="figure-zoom" href="assets/addition-comparison.svg" target="_blank" rel="noopener" aria-label="Open the addition comparison at full resolution">
+                <img src="assets/addition-comparison.svg" alt="Qualitative comparison on addition tasks" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <figcaption><strong>Addition.</strong> Qualitative comparison on object addition.</figcaption>
+          </figure>
+
+          <figure class="research-figure">
+            <div class="image-surface">
+              <a class="figure-zoom" href="assets/replacement-comparison.svg" target="_blank" rel="noopener" aria-label="Open the replacement comparison at full resolution">
+                <img src="assets/replacement-comparison.svg" alt="Qualitative comparison on replacement tasks" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <figcaption><strong>Replacement.</strong> Qualitative comparison on object replacement.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-width footer-inner">
+      <p><strong>PC-Edit</strong> · Prompt-Contrastive Region Discovery and Region-Guided Editing</p>
+      <p>
+        Code coming soon
+        <span>·</span>
+        No analytics or tracking
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
